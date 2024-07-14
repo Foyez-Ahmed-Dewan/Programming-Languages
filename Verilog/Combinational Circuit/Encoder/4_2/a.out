@@ -1,0 +1,90 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000274bb9c6110 .scope module, "encoder_tb" "encoder_tb" 2 3;
+ .timescale -9 -12;
+v00000274bba1b830_0 .net "A", 1 0, L_00000274bba1bc40;  1 drivers
+v00000274bba1b8d0_0 .var "Y", 3 0;
+S_00000274bb9d5780 .scope module, "uut" "encoder" 2 8, 3 1 0, S_00000274bb9c6110;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "Y";
+    .port_info 1 /OUTPUT 2 "A";
+L_00000274bb9d5b90 .functor OR 1, L_00000274bba1b970, L_00000274bba1bba0, C4<0>, C4<0>;
+L_00000274bb9c6340 .functor OR 1, L_00000274bba1c960, L_00000274bba1bce0, C4<0>, C4<0>;
+v00000274bb9a3000_0 .net "A", 1 0, L_00000274bba1bc40;  alias, 1 drivers
+v00000274bb9a2c30_0 .net "Y", 3 0, v00000274bba1b8d0_0;  1 drivers
+v00000274bb9a3370_0 .net *"_ivl_12", 0 0, L_00000274bba1c960;  1 drivers
+v00000274bb9c62a0_0 .net *"_ivl_14", 0 0, L_00000274bba1bce0;  1 drivers
+v00000274bb9d5910_0 .net *"_ivl_15", 0 0, L_00000274bb9c6340;  1 drivers
+v00000274bb9d59b0_0 .net *"_ivl_3", 0 0, L_00000274bba1b970;  1 drivers
+v00000274bb9d5a50_0 .net *"_ivl_5", 0 0, L_00000274bba1bba0;  1 drivers
+v00000274bb9d5af0_0 .net *"_ivl_6", 0 0, L_00000274bb9d5b90;  1 drivers
+L_00000274bba1b970 .part v00000274bba1b8d0_0, 2, 1;
+L_00000274bba1bba0 .part v00000274bba1b8d0_0, 3, 1;
+L_00000274bba1bc40 .concat8 [ 1 1 0 0], L_00000274bb9c6340, L_00000274bb9d5b90;
+L_00000274bba1c960 .part v00000274bba1b8d0_0, 1, 1;
+L_00000274bba1bce0 .part v00000274bba1b8d0_0, 3, 1;
+    .scope S_00000274bb9c6110;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %ix/load 4, 3, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v00000274bba1b8d0_0, 4, 1;
+    %pushi/vec4 0, 0, 1;
+    %ix/load 4, 2, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v00000274bba1b8d0_0, 4, 1;
+    %pushi/vec4 0, 0, 1;
+    %ix/load 4, 1, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v00000274bba1b8d0_0, 4, 1;
+    %pushi/vec4 1, 0, 1;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v00000274bba1b8d0_0, 4, 1;
+    %delay 20000, 0;
+    %pushi/vec4 1, 0, 1;
+    %ix/load 4, 1, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v00000274bba1b8d0_0, 4, 1;
+    %pushi/vec4 0, 0, 1;
+    %ix/load 4, 0, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v00000274bba1b8d0_0, 4, 1;
+    %delay 20000, 0;
+    %pushi/vec4 1, 0, 1;
+    %ix/load 4, 2, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v00000274bba1b8d0_0, 4, 1;
+    %pushi/vec4 0, 0, 1;
+    %ix/load 4, 1, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v00000274bba1b8d0_0, 4, 1;
+    %delay 20000, 0;
+    %pushi/vec4 1, 0, 1;
+    %ix/load 4, 3, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v00000274bba1b8d0_0, 4, 1;
+    %pushi/vec4 0, 0, 1;
+    %ix/load 4, 2, 0;
+    %flag_set/imm 4, 0;
+    %store/vec4 v00000274bba1b8d0_0, 4, 1;
+    %end;
+    .thread T_0;
+    .scope S_00000274bb9c6110;
+T_1 ;
+    %vpi_call 2 40 "$monitor", "Y3 = %b, Y2 = %b, Y1 = %b, Y0 = %b || A1 = %b, A0 = %b", &PV<v00000274bba1b8d0_0, 3, 1>, &PV<v00000274bba1b8d0_0, 2, 1>, &PV<v00000274bba1b8d0_0, 1, 1>, &PV<v00000274bba1b8d0_0, 0, 1>, &PV<v00000274bba1b830_0, 1, 1>, &PV<v00000274bba1b830_0, 0, 1> {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "encoder_tb.v";
+    "encoder.v";

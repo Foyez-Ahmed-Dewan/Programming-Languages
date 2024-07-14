@@ -1,0 +1,4 @@
+how to assign multiple variable in single line:
+	a, b, c = 0, 0, 0
+how to take multiple int input in one line:
+	a, b = map(int, input().split())

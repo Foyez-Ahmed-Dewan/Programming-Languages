@@ -1,0 +1,98 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_0000020343b85ff0 .scope module, "counter_tb" "counter_tb" 2 3;
+ .timescale -9 -12;
+v0000020343b976c0_0 .var "clk", 0 0;
+v0000020343b97760_0 .net "q", 6 0, L_0000020343b4a1c0;  1 drivers
+v0000020343bde070_0 .var "reset", 0 0;
+S_0000020343b86180 .scope module, "circuit" "counter" 2 9, 3 1 0, S_0000020343b85ff0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "reset";
+    .port_info 1 /INPUT 1 "clk";
+    .port_info 2 /OUTPUT 7 "q";
+L_0000020343b4a1c0 .functor BUFZ 7, v0000020343b95f70_0, C4<0000000>, C4<0000000>, C4<0000000>;
+v0000020343b960b0_0 .net "clk", 0 0, v0000020343b976c0_0;  1 drivers
+v0000020343b96150_0 .net "d_temp", 6 0, L_0000020343bde1b0;  1 drivers
+v0000020343b961f0_0 .net "q", 6 0, L_0000020343b4a1c0;  alias, 1 drivers
+v0000020343b96290_0 .net "q_temp", 6 0, v0000020343b95f70_0;  1 drivers
+v0000020343b97620_0 .net "reset", 0 0, v0000020343bde070_0;  1 drivers
+S_0000020343b4ba80 .scope module, "adder_circuit" "addOne" 3 12, 4 1 0, S_0000020343b86180;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 7 "I";
+    .port_info 1 /OUTPUT 7 "O";
+v0000020343b63560_0 .net "I", 6 0, v0000020343b95f70_0;  alias, 1 drivers
+v0000020343b63340_0 .net "O", 6 0, L_0000020343bde1b0;  alias, 1 drivers
+L_0000020343bdf038 .functor BUFT 1, C4<0000001>, C4<0>, C4<0>, C4<0>;
+v0000020343b86310_0 .net/2u *"_ivl_0", 6 0, L_0000020343bdf038;  1 drivers
+L_0000020343bde1b0 .arith/sum 7, v0000020343b95f70_0, L_0000020343bdf038;
+S_0000020343b4bc10 .scope module, "register_circuit" "register" 3 10, 5 1 0, S_0000020343b86180;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "reset";
+    .port_info 1 /INPUT 1 "clk";
+    .port_info 2 /INPUT 7 "d";
+    .port_info 3 /OUTPUT 7 "q";
+v0000020343b4bda0_0 .net "clk", 0 0, v0000020343b976c0_0;  alias, 1 drivers
+v0000020343b95ed0_0 .net "d", 6 0, L_0000020343bde1b0;  alias, 1 drivers
+v0000020343b95f70_0 .var "q", 6 0;
+v0000020343b96010_0 .net "reset", 0 0, v0000020343bde070_0;  alias, 1 drivers
+E_0000020343b98ec0 .event posedge, v0000020343b4bda0_0, v0000020343b96010_0;
+    .scope S_0000020343b4bc10;
+T_0 ;
+    %wait E_0000020343b98ec0;
+    %load/vec4 v0000020343b96010_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %pushi/vec4 0, 0, 7;
+    %assign/vec4 v0000020343b95f70_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v0000020343b95ed0_0;
+    %assign/vec4 v0000020343b95f70_0, 0;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_0000020343b85ff0;
+T_1 ;
+    %load/vec4 v0000020343b976c0_0;
+    %inv;
+    %store/vec4 v0000020343b976c0_0, 0, 1;
+    %delay 10000, 0;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_0000020343b85ff0;
+T_2 ;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0000020343b976c0_0, 0;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v0000020343bde070_0, 0;
+    %delay 20000, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0000020343bde070_0, 0;
+    %delay 20000, 0;
+    %delay 20000, 0;
+    %delay 20000, 0;
+    %delay 20000, 0;
+    %delay 20000, 0;
+    %vpi_call 2 29 "$finish" {0 0 0};
+    %end;
+    .thread T_2;
+    .scope S_0000020343b85ff0;
+T_3 ;
+    %vpi_call 2 34 "$monitor", "reset = %b, clk = %b || q = %b", v0000020343bde070_0, v0000020343b976c0_0, v0000020343b97760_0 {0 0 0};
+    %end;
+    .thread T_3;
+# The file index is used to find the file name in the following table.
+:file_names 6;
+    "N/A";
+    "<interactive>";
+    "counter_tb.v";
+    "counter.v";
+    "adder.v";
+    "register.v";

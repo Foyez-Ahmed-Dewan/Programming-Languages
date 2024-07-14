@@ -1,0 +1,5 @@
+iverilog -o output counter.v counter_tb.v register.v adder.v
+
+vvp output
+
+gtkwave test.vcd

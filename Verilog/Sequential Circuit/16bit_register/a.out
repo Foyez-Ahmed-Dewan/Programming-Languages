@@ -1,0 +1,77 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000216fb195f30 .scope module, "register_tb" "register_tb" 2 3;
+ .timescale -9 -12;
+v00000216fb162a10_0 .var "clk", 0 0;
+v00000216fb162ab0_0 .var "d", 15 0;
+v00000216fb162b50_0 .net "q", 15 0, v00000216fb1628d0_0;  1 drivers
+v00000216fb162bf0_0 .var "reset", 0 0;
+S_00000216fb1960c0 .scope module, "circuit" "register" 2 10, 3 1 0, S_00000216fb195f30;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "reset";
+    .port_info 1 /INPUT 1 "clk";
+    .port_info 2 /INPUT 16 "d";
+    .port_info 3 /OUTPUT 16 "q";
+v00000216fb162eb0_0 .net "clk", 0 0, v00000216fb162a10_0;  1 drivers
+v00000216fb162830_0 .net "d", 15 0, v00000216fb162ab0_0;  1 drivers
+v00000216fb1628d0_0 .var "q", 15 0;
+v00000216fb162970_0 .net "reset", 0 0, v00000216fb162bf0_0;  1 drivers
+E_00000216fafcbf70 .event posedge, v00000216fb162eb0_0, v00000216fb162970_0;
+    .scope S_00000216fb1960c0;
+T_0 ;
+    %wait E_00000216fafcbf70;
+    %load/vec4 v00000216fb162970_0;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.0, 8;
+    %pushi/vec4 0, 0, 16;
+    %assign/vec4 v00000216fb1628d0_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v00000216fb162830_0;
+    %assign/vec4 v00000216fb1628d0_0, 0;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_00000216fb195f30;
+T_1 ;
+    %load/vec4 v00000216fb162a10_0;
+    %inv;
+    %store/vec4 v00000216fb162a10_0, 0, 1;
+    %delay 10000, 0;
+    %jmp T_1;
+    .thread T_1;
+    .scope S_00000216fb195f30;
+T_2 ;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v00000216fb162a10_0, 0;
+    %pushi/vec4 0, 0, 16;
+    %assign/vec4 v00000216fb162ab0_0, 0;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v00000216fb162bf0_0, 0;
+    %delay 20000, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v00000216fb162bf0_0, 0;
+    %pushi/vec4 15, 0, 16;
+    %assign/vec4 v00000216fb162ab0_0, 0;
+    %delay 20000, 0;
+    %vpi_call 2 28 "$finish" {0 0 0};
+    %end;
+    .thread T_2;
+    .scope S_00000216fb195f30;
+T_3 ;
+    %vpi_call 2 33 "$monitor", "reset = %b, clk = %b, d = %b, q = %b", v00000216fb162bf0_0, v00000216fb162a10_0, v00000216fb162ab0_0, v00000216fb162b50_0 {0 0 0};
+    %end;
+    .thread T_3;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "register_tb.v";
+    "register.v";

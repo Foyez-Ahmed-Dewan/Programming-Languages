@@ -1,0 +1,328 @@
+# # '#' is used for comments
+# # 'print' is used to display the output
+# # we can use single or double quotes inside print function, doesn't matters
+# print("Hello World")  #output : Hello World
+# print('Hello World')  #output : Hello World
+
+# #print modifiers : there are 3 ways
+# # print("A 'single quote' inside a double quote")
+# # print('A "double quote" inside a single quote')
+# # print("Alternatively you can just \"escape\" the quote")  #if you use double quotes inside double quotes you need to use \ to escape the inner double quote
+
+# #print modifiers : example
+# print("She said : 'Hello' and then left."
+#       )  #output: She said : 'Hello' and then left.
+# print('She said : "Hello" and then left.'
+#       )  #output: She said : "Hello" and then left.
+# print("She said : \"Hello\" and then left."
+#       )  #output: She said : "Hello" and then left.
+
+# print ('e.g. print("Hello " + "world")') #output: e.g. print("Hello " + "world")  
+
+#break 1
+
+# ######  String Manipulation #####
+# #New line between two lines -> \n
+# print("Hello\nFoyez")  #output : Hello
+# #newline: Foyez
+# print("Hello" + " " + "Foyez")  #output : Hello Foyez
+# print("Hello " + "Foyez")  #output : Hello Foyez
+
+# #In python, Indentation is very important
+# # print("hello world")  #this code will generate an error because of the indentation, all code should start at the beginning of the line
+
+#break - 2
+
+# ##### Input Function #####
+# input("What is your name?") #it will take input from the user on the same line
+
+# print(input("What is your name?")) #it will take input from the user on the same line, then will print the given input value on a new-line
+
+# #length of a string
+# print(len(input("What is your name?"))) #len() function is used to determine the length of a string
+
+# print(len("Foyez Ahmed"))  #output: 11
+# print(len(12345))  #this will generate an error as len function can only be used with strings
+
+#break - 3
+
+# ##### Variable Naming Conventions ####
+# #variable name must start with a letter or underscore, can not start with a number
+# #variable names are case-sensitive
+
+# #take 2 input and swap them
+# a = input()
+# b = input()
+
+# print ("Before Swap:\n a: " + a + "\n b: "+ b)
+
+# c = a
+# a = b
+# b = c
+
+# print("After Swap:\n a: " + a + "\n b: " + b)
+
+
+#break - 4
+# ##### primitive data types in Python : int, float, booleans, strings 
+# #String
+# print("Hello" [1])  # output the contents of index 1 [indexing start from 0], output : e
+# # "everything inside double quotes is a string"
+# print ("123" + "456") #output : 123456
+
+# #Integer
+# print(123 + 456)   #output : 579
+# print(123_456_789) #output : 123456789
+
+# #Float
+# print(3.14159)     #output : 3.14159
+
+# #Boolean
+# print(True)        #output : True **notice the capital T in True and capital F in False
+# print(False)
+
+
+#break - 5
+# #type error
+# num_char = len(input("What is your name?"))
+# # print("Your name has " + num_char + " characters.")   #this will generate an error as num_char is an integer, we can't concatenate a string with an integer
+
+# #using type cast
+# print("Your name has " + str(num_char) + " characters.") #num char is converted into string
+
+# #type checking : type (x) is used to get the type of an object(x)
+# print(type(num_char))    #output: <class 'int'>
+# print(type("Hello"))    #output: <class 'str'>
+# print(type("123.45"))   #output: <class 'str'>
+# print(type(123.45))     #output: <class 'float'>
+
+# #in python, input function always returns a string
+# a = input()
+# print(type(a)) 
+
+# #type conversion
+# a = 3
+# b = 5
+
+# c = a + b  
+# print(c) #output : 8
+
+# c = str(a) + str(b)
+# print(c) #output : 35
+
+# a = 3.67
+# print(int(a)) #output : 3
+# print(str(a)) #output : 3.67
+
+# a = 50
+# print(float(a)) #output : 50.0
+
+# b = 50.6
+
+# print(int(a) + int(b)) #output : 100
+# print(int(a) + float(b)) #output: 100.6
+# # print(int(a) + str(b))  #error
+
+
+#break - 6
+# # #Mathematical Operators
+# #divison operator always returns float value even if the result is an integer
+# print (10 / 2) #output : 5.0
+# #muliplication
+# print (5 * 2) #output : 10
+# #exponentiation
+# print (5 ** 2) #output : 25 , it works same as pow(5, 2) = 5^2 in c++
+
+# #order of operations : PEMDAS
+# #parenthesis, exponentiation
+# #multiplication, division : associativity L to R
+# #addition, subtraction : associativity L to R
+
+# #rounding off: convert the result into nearest integer
+# print(round(8/3)) #output : 3
+# print(round(8/3, 2)) #output: 2.67
+# print(round(2.66666666666666, 2)) #output: 2.67
+# #round(x/y, p) returns x/y rounded to p decimal places
+
+# #floor division : returns an integer x that is less than actual value
+# print (8 // 3) #output : 2
+
+# #increment ++, decrement -- operators are not allowed in python
+# #instead we can use +=, -=, *=, /= operators
+
+# #### F-string 
+# scr = 200
+# # print("Your score is :" + scr)    #this is invalid
+# print("Your score is: " + str(scr)) #this is valid
+# #we can use f-string to print the value of a variable in a string
+# print(f"Your score is: {scr}")
+
+# ###ex - 2
+# score = 100
+# height = 1.8
+# isWinning = True
+# print(f"Your score is: {score}, your height is: {height}, your winning situation is : {isWinning}")
+
+
+#break - 7
+# #### Control Flow ####
+# #if-else statement
+# #example - 1: take an input , if the input is greater than 100 print "greater than 100", else print "less than 100"
+# number = int(input("Write a number: "))
+
+# if (number > 100):
+#   print("Greater than 100")
+# else :
+#   print("Less than 100")
+
+# #everything that is intended after the if statement is considered as part of the if statement
+# if (number > 100):
+#     print("Greater")
+#     print("Than")
+#     print("100")
+# else:
+#     print("Less")
+#     print("Than")
+#     print("100")
+
+# #example -2: take an input and check if the input is an even number or an odd number
+# number2 = int(input("Enter a number: "))
+
+# if (number2 % 2 == 0):
+#   print("This is an Even number.")
+# else:
+#   print("This is an Odd number.")
+
+
+#break - 8
+# # #### Nested if-else statements ####
+# #example - 3: Write a program that will determine if a student can ride a car or not. If someone's height are above 100cm and his/her age is greater than or equal to 18, he/she can ride the car. Otherwise it is impossible for him to ride the car.
+# height = int(input("Enter your height in cm: "))
+# age = int(input("Enter your age: "))
+
+# if (height > 100):
+#   if (age >= 18):
+#     print("You can ride the car.")
+#   else:
+#     print("You can't ride the car.")
+# else:
+#     print("You can't ride the car.")
+
+# #another way to write the above code
+# if (height > 100 and age >= 18):  
+#   print("You can ride the car.")
+# else:
+#   print("You can't ride the car.") 
+
+# #elif statements = similar to else if statement ***
+# ##example -3: take a number, if it is greater than 100 print "greater than 100", if it is between 50 and 100 print "between 50 and 100", if it is less than 50 print "less than 50"
+
+# number3 = int(input("Enter a number: "))
+
+# if (number3 > 100):
+#   print("Greater than 100")
+# elif (number3 >= 50 and number3 <= 100):
+#   print("Between 50 and 100")
+# else:
+#   print("Less than 50")
+
+
+
+#break - 9: 
+######  Logical Operators #####
+#you can't use [&&, ||, !] operators in python
+#instead, you need to use [and, or, not] keywords
+
+
+#break - 10: 
+# ######  Randomisation ##### -> Python uses "Mersenne Twister" Algorithm to generate random value
+
+# import random  #first you need to import the random module
+
+# random_integer = random.randint(1, 10) #random.randint(l, r) returns a random integer between [l, r]
+# print(random_integer)
+
+# random_float = random.random()
+# print(random_float)  #random.random() returns a random float between [0, 1)
+
+# #example - 1: generate a random float between 0 and 5
+# #random() gives float between 0.0000 to 0.99999...
+# #if we multiply this value with 5, we get floating number between 0.0000 to 4.9999...
+# random_float_2 = random.random()
+# random_float_2 *= 5
+# print(random_float_2)
+
+
+
+
+#break - 11
+# ##### Lists data structure #####
+
+# name = ['a', "b", 'c'] #notice single quote , double quote doesn't matter
+# print(name)        #print the list , output: [a, b, c]
+# print(name [0])   #print the first element of the list, output : a
+# #we can use negative index also, negative index indicates from last,i.e, [0, 1, 2, ....., -2, -1]
+# print(name[-1])  #output : c
+
+# name [1] = "d" #change the value of the index 1 of the list
+# print(name)  #output: a, d, c
+
+# #to add a new element in the end of the list we can use append()
+# name.append("e") 
+# print(name)  #output: a, d, c, e
+
+# #we can insert a new element in the list at a specific index using insert(index, item)
+# name.insert(1, "b")
+# print(name)  #output: a, b, d, c, e
+
+# #to remove an element from the list we can use remove(item), this will remove the 1st occurance of the item. If it doesn't exist, it will generate an valueError
+# name.remove("d")
+# print(name) #output: a, b, c, e
+
+# #pop() function remove the last element of the list
+# name.pop()
+# print(name) #output: a, b, c
+
+# #we can delete value from specific index using del keyword
+# name.extend(['u', 'a'])
+# print(name) #output: a, b, c, u, a
+# del name[3]
+# print(name) #output: a, b, c, a
+
+# #to count occurance of an item, use count(item)
+# print(name.count('a')) #output: 2
+
+# #to reverse a list
+# print(name)  #output: a, b, c, a
+# name.reverse()
+# print(name)  #output: a, c, b, a
+
+# #to sort a list
+# name.sort()
+# print(name) #output: a, a, b, c
+
+# #print the first index of an item that exist in the list
+# print(name.index('a')) #output: 0
+# #print the index of an item starting at index 1
+# print(name.index('a', 1)) #output: 1
+
+# #length of a list: len() function is used
+# print(len(name)) #output: 4
+
+
+# #we can also add a list to the end of the list using extend()
+# arr = ["a", "b", "c"]
+# name.extend(arr)
+# print(name)  #output: a, a, b, c, a, b, c
+
+# # print(name[100]) #IndexError is same as run time error. If we try to access an index that is not present in the list, we get an IndexError
+
+# ##nested list
+# new_list = [name, arr]
+# print(new_list)
+# print(new_list[0])   #print the first element(list) of the list
+# print(new_list[0][0]) #same as 2d array
+
+# #to clear a list
+# name.clear()  
+# print(name) #output: [] --> means list is empty now
